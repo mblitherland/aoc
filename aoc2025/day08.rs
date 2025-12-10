@@ -16,8 +16,12 @@ fn main() {
             }
         }
     }
-    // lengths.sort_by()
-    println!("lengths: {:?}", lengths);
+    let mut sorted: Vec<_> = lengths.iter().collect();
+    sorted.sort_by(|a, b| a.1.partial_cmp(b.1).unwrap());
+    for (k, v) in sorted.iter() {
+        println!("k, v: {:?}, {:?}", k, v);
+    }
+    // println!("lengths: {:?}", sorted);
 }
 
 fn length(v1: &Vec<i64>, v2: &Vec<i64>) -> f64 {
